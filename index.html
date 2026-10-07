@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="부산 시민 AI 체험의 날. 10월 11일 (일) 12:00 ~ 20:00, 광안리 해수욕장에서 생활 속 AI 활용법을 쉽고 안전하게 만나보세요. 무료 참여, 사전 신청 및 현장 참여 가능.">
+  <meta name="theme-color" content="#074edb">
+  <title>부산 시민 AI 체험의 날</title>
+  <style>
+    :root { --blue:#074edb; --deep:#073538; --teal:#08786d; --mint:#d8f2e9; --lime:#e7fa75; --paper:#faf9f3; --ink:#163838; --muted:#516966; --line:#ccdad3; --white:#fff; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:100px; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif; line-height:1.65; word-break:keep-all; }
+    a { color:inherit; text-decoration:none; }
+    button,summary { font:inherit; }
+    a:focus-visible,summary:focus-visible { outline:3px solid var(--blue); outline-offset:5px; }
+    ::selection { background:var(--lime); color:var(--deep); }
+    .wrap { width:min(1180px,calc(100% - 80px)); margin-inline:auto; }
+    .skip { position:fixed; left:20px; top:-100px; z-index:100; padding:12px 20px; background:var(--white); color:var(--blue); }
+    .skip:focus { top:12px; }
+    .header { position:sticky; top:0; z-index:20; background:var(--paper); border-bottom:1px solid var(--line); }
+    .header-inner { min-height:86px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { display:flex; align-items:center; gap:12px; font-size:17px; font-weight:800; line-height:1.35; }
+    .brand-mark { display:grid; place-items:center; width:40px; height:40px; border-radius:50%; background:var(--blue); color:white; font-size:21px; letter-spacing:-2px; }
+    .nav { display:flex; align-items:center; gap:28px; font-size:15px; font-weight:700; }
+    .nav a:not(.nav-apply):hover { color:var(--blue); }
+    .nav-apply { padding:9px 19px; border:1px solid var(--ink); border-radius:30px; }
+    .nav-apply:hover { background:var(--ink); color:var(--white); }
+    .mobile-menu { display:none; }
+    .hero { padding:56px 0 32px; overflow:hidden; }
+    .hero-grid { display:grid; grid-template-columns:1.12fr 1fr; align-items:center; gap:32px; }
+    .eyebrow { display:flex; align-items:center; gap:10px; font-size:14px; font-weight:800; letter-spacing:.03em; }
+    .dot { display:inline-block; width:8px; height:8px; background:var(--teal); border-radius:50%; }
+    h1 { margin:25px 0 21px; font-size:clamp(48px,6.1vw,82px); line-height:1.15; font-weight:900; letter-spacing:-.075em; }
+    h1 span { color:var(--blue); }
+    .hero-copy { font-size:20px; letter-spacing:-.025em; margin:0 0 22px; }
+    .hero-info { display:flex; flex-direction:column; gap:4px; font-size:18px; font-weight:700; }
+    .hero-info b { color:var(--blue); font-size:24px; margin-right:8px; }
+    .hero-location { display:flex; align-items:center; gap:8px; }
+    .pin { width:20px; height:20px; flex-shrink:0; }
+    .hero-actions { display:flex; align-items:center; gap:15px; flex-wrap:wrap; margin-top:25px; }
+    .button { display:inline-flex; align-items:center; justify-content:space-between; gap:32px; padding:15px 24px; border-radius:6px; font-weight:800; font-size:17px; background:var(--blue); color:white; min-height:54px; transition:background .2s,transform .2s; }
+    .button:hover { background:#003ab1; transform:translateY(-2px); }
+    .arrow { font-size:23px; line-height:1; }
+    .free-pill { border:1px solid var(--teal); color:var(--teal); border-radius:30px; padding:6px 13px; font-size:14px; font-weight:800; }
+    .deadline { font-size:14px; margin:12px 0 0; color:var(--muted); }
+    .deadline strong { color:var(--ink); }
+    .hero-art { position:relative; height:465px; border-radius:48% 48% 6px 6px; background:var(--mint); overflow:hidden; isolation:isolate; }
+    .art-grid { position:absolute; inset:0; background-image:linear-gradient(#08786d12 1px,transparent 1px),linear-gradient(90deg,#08786d12 1px,transparent 1px); background-size:36px 36px; }
+    .art-sun { position:absolute; width:220px; height:220px; background:var(--lime); border-radius:50%; top:57px; left:50%; transform:translateX(-50%); }
+    .orbit { position:absolute; width:320px; height:133px; border:1.5px solid var(--teal); border-radius:50%; top:115px; left:50%; transform:translateX(-50%) rotate(-27deg); }
+    .orbit.two { transform:translateX(-50%) rotate(29deg); }
+    .art-ai { position:absolute; left:0; right:0; top:70px; text-align:center; color:var(--blue); font-size:151px; font-weight:900; letter-spacing:-13px; line-height:1.2; transform:rotate(-7deg); }
+    .art-spark { position:absolute; width:57px; height:57px; right:37px; top:72px; color:var(--teal); }
+    .art-bubble { position:absolute; padding:9px 18px; background:var(--white); border:1px solid var(--deep); border-radius:30px; font-size:17px; font-weight:800; box-shadow:3px 4px 0 var(--deep); }
+    .bubble-easy { left:23px; top:128px; transform:rotate(-12deg); }
+    .bubble-safe { right:20px; top:233px; transform:rotate(10deg); }
+    .art-date { position:absolute; left:28px; bottom:44px; z-index:3; color:white; font-size:42px; font-weight:900; line-height:1; letter-spacing:-2px; }
+    .art-date small { display:block; margin-top:9px; font-size:13px; font-weight:600; letter-spacing:2px; }
+    .art-waves { position:absolute; bottom:0; width:100%; height:230px; }
+    .art-label { position:absolute; right:23px; bottom:26px; color:white; z-index:3; font-size:12px; letter-spacing:3px; writing-mode:vertical-rl; }
+    .quick-facts { display:grid; grid-template-columns:repeat(4,1fr); margin-top:42px; padding:24px 0; border-top:1px solid var(--ink); border-bottom:1px solid var(--line); }
+    .fact { padding:0 23px; border-left:1px solid var(--line); }
+    .fact:first-child { padding-left:0; border-left:0; }
+    .fact-label { display:block; font-size:12px; color:var(--muted); font-weight:700; margin-bottom:4px; }
+    .fact-value { font-weight:800; font-size:18px; }
+    .section { padding:85px 0; }
+    .section-kicker { margin:0 0 13px; font-size:12px; letter-spacing:.15em; font-weight:800; color:var(--teal); }
+    .section-kicker span { margin-right:10px; }
+    h2 { margin:0; font-size:clamp(30px,3.3vw,44px); line-height:1.3; letter-spacing:-.055em; }
+    .section-lead { margin:15px 0 0; color:var(--muted); font-size:17px; }
+    .intro { display:grid; grid-template-columns:1fr 1fr; gap:90px; align-items:start; }
+    .intro h2 em { font-style:normal; color:var(--blue); }
+    .intro-text { padding-top:30px; }
+    .intro-text p { margin:0 0 20px; font-size:18px; }
+    .intro-note { display:flex; align-items:center; gap:12px; font-size:14px; font-weight:700; color:var(--teal); }
+    .round-plus { display:grid; place-items:center; width:27px; height:27px; border:1px solid var(--teal); border-radius:50%; }
+    .schedule { padding:38px 40px; margin-top:46px; border:1px solid var(--line); display:grid; grid-template-columns:1fr 1.6fr; gap:35px; background:white; border-radius:6px; }
+    .schedule h3 { margin:0 0 12px; font-size:23px; letter-spacing:-.04em; }
+    .pending { display:inline-flex; align-items:center; padding:2px 9px; border-radius:20px; background:#edf1ed; color:#52635b; font-size:12px; font-weight:700; white-space:nowrap; }
+    .schedule dl { margin:0; display:grid; grid-template-columns:80px 1fr; gap:10px 20px; }
+    dt { color:var(--muted); }
+    dd { margin:0; font-weight:700; }
+    .program-section { background:var(--mint); border-top:1px solid #c7e2d8; border-bottom:1px solid #c7e2d8; }
+    .section-heading { display:flex; align-items:end; justify-content:space-between; gap:30px; margin-bottom:35px; }
+    .program-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .program-card { background:var(--paper); border:1px solid #b7d4c9; padding:24px 23px; border-radius:6px; position:relative; }
+    .card-top { display:flex; justify-content:space-between; align-items:center; }
+    .card-number { font-size:13px; font-weight:700; color:var(--teal); }
+    .program-icon { width:60px; height:60px; color:var(--blue); margin:34px 0 22px; }
+    .program-card:nth-child(even) .program-icon { color:var(--teal); }
+    .program-card h3 { margin:0 0 23px; font-size:24px; font-weight:800; letter-spacing:-.05em; }
+    .program-card dl { display:grid; grid-template-columns:1fr auto; gap:9px; margin:0; padding-top:17px; border-top:1px solid var(--line); font-size:13px; }
+    .program-note { margin:22px 0 0; font-size:14px; color:var(--muted); }
+    .join-grid { display:grid; grid-template-columns:1fr 1fr; gap:50px; margin-top:38px; }
+    .join-info { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+    .join-fact { padding:24px 0; border-top:1px solid var(--line); }
+    .join-fact:nth-child(odd) { margin-right:25px; }
+    .join-fact span { font-size:14px; color:var(--muted); }
+    .join-fact strong { display:block; margin-top:8px; font-size:27px; letter-spacing:-.05em; }
+    .join-fact small { display:block; font-size:14px; color:var(--muted); margin-top:4px; }
+    .apply-panel { background:var(--blue); color:white; padding:32px 34px; border-radius:6px; position:relative; overflow:hidden; }
+    .apply-panel::after { content:"↗"; position:absolute; font-size:150px; line-height:1; top:-5px; right:20px; color:#ffffff12; pointer-events:none; }
+    .apply-panel .section-kicker { color:#dce6ff; }
+    .apply-panel h3 { margin:0 0 8px; font-size:31px; letter-spacing:-.05em; }
+    .apply-panel .apply-time { font-size:21px; font-weight:800; margin:0 0 8px; }
+    .apply-panel .apply-address { margin:0 0 24px; font-size:14px; color:#e0eaff; }
+    .apply-panel .button { background:var(--lime); color:var(--deep); width:100%; }
+    .apply-panel .button:hover { background:white; }
+    .apply-panel .onsite { font-size:14px; margin:18px 0 0; color:#e0eaff; }
+    .join-pending { padding:18px 0 0; margin:0; color:var(--muted); font-size:14px; }
+    .join-pending .pending { margin-left:5px; }
+    .location-section { background:var(--deep); color:var(--paper); }
+    .location-section .section-kicker { color:#a7dec5; }
+    .location-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+    .sea-sign { background:#0b4648; min-height:300px; padding:30px; position:relative; overflow:hidden; border-radius:6px; border:1px solid #48706c; }
+    .sea-sign .coordinate { color:#b9dad0; font-size:12px; letter-spacing:.14em; }
+    .sea-sign strong { display:block; margin-top:20px; font-size:56px; line-height:1.2; letter-spacing:-.06em; color:var(--lime); }
+    .sea-sign .wave-sign { position:absolute; right:-10px; bottom:20px; width:280px; height:90px; color:#6ab2a2; }
+    .sea-sign .map-pending { position:relative; margin-top:23px; color:#c6e4dc; font-size:13px; }
+    .location-info h2 { margin-bottom:22px; }
+    .location-info dl { display:grid; grid-template-columns:85px 1fr; gap:17px; margin:0; font-size:16px; }
+    .location-info dt { color:#b2cfc6; }
+    .location-info .pending { background:#275655; color:#e7f3ee; }
+    .faq { max-width:850px; margin:auto; }
+    .faq h2 { margin-bottom:30px; }
+    .faq details { border-bottom:1px solid var(--line); }
+    .faq details:first-of-type { border-top:1px solid var(--ink); }
+    .faq summary { list-style:none; cursor:pointer; position:relative; padding:23px 40px 23px 0; font-size:18px; font-weight:700; }
+    .faq summary::-webkit-details-marker { display:none; }
+    .faq summary::after { content:"+"; position:absolute; right:4px; top:18px; color:var(--teal); font-size:28px; font-weight:400; }
+    .faq details[open] summary::after { content:"−"; }
+    .faq details p { margin:0; padding:0 35px 24px 0; color:var(--muted); font-size:16px; }
+    .closing { margin-top:60px; background:var(--lime); border-radius:6px; padding:28px 34px; display:flex; justify-content:space-between; align-items:center; gap:20px; }
+    .closing strong { font-size:23px; line-height:1.4; letter-spacing:-.04em; }
+    .closing p { margin:4px 0 0; font-size:14px; }
+    .closing .button { flex-shrink:0; }
+    .footer { border-top:1px solid var(--line); padding:40px 0 28px; }
+    .footer-main { display:flex; justify-content:space-between; gap:30px; align-items:start; }
+    .host-label { font-size:12px; color:var(--muted); margin-bottom:6px; }
+    .host-name { font-size:23px; font-weight:800; letter-spacing:-.05em; }
+    .logo-placeholder { margin-top:12px; display:inline-flex; gap:12px; align-items:center; padding:9px 13px; border:1px dashed #9cb5aa; border-radius:4px; color:var(--muted); font-size:12px; }
+    .footer-contact { font-size:14px; }
+    .footer-contact p { margin:0 0 8px; }
+    .footer-bottom { margin-top:30px; padding-top:18px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-size:12px; color:var(--muted); }
+    .footer-bottom a { text-decoration:underline; text-underline-offset:4px; }
+    @media (min-width:900px) { .hero-copy-block { animation:appear .65s ease-out both; } .hero-art { animation:appear .8s .1s ease-out both; } }
+    @keyframes appear { from { opacity:0; transform:translateY(15px); } to { opacity:1; transform:translateY(0); } }
+    @media (max-width:1000px) {
+      .wrap { width:calc(100% - 48px); }
+      .nav { gap:17px; font-size:14px; }
+      .hero-grid { gap:22px; }
+      .hero-art { height:425px; }
+      .art-ai { font-size:135px; }
+      .intro { gap:40px; }
+      .program-grid { grid-template-columns:repeat(2,1fr); }
+      .program-icon { margin:22px 0 18px; }
+      .join-grid { gap:28px; }
+      .location-grid { gap:35px; }
+    }
+    @media (max-width:760px) {
+      html { scroll-padding-top:84px; }
+      .wrap { width:calc(100% - 40px); }
+      .header-inner { min-height:74px; gap:10px; }
+      .brand { font-size:14px; gap:9px; }
+      .brand-mark { width:33px; height:33px; font-size:18px; }
+      .nav { display:none; }
+      .mobile-menu { display:block; }
+      .mobile-menu > summary { list-style:none; border:1px solid var(--line); padding:7px 13px; border-radius:4px; font-size:14px; cursor:pointer; font-weight:700; }
+      .mobile-menu > summary::-webkit-details-marker { display:none; }
+      .mobile-menu[open] > summary { background:var(--deep); color:white; }
+      .mobile-nav { position:absolute; top:73px; left:0; right:0; display:grid; background:var(--paper); border-bottom:1px solid var(--line); padding:12px 20px 20px; box-shadow:0 10px 20px #0735380d; }
+      .mobile-nav a { padding:12px; font-weight:700; border-bottom:1px solid var(--line); }
+      .mobile-nav a:last-child { color:var(--blue); }
+      .hero { padding:33px 0 24px; }
+      .hero-grid { grid-template-columns:1fr; gap:28px; }
+      h1 { font-size:clamp(47px,10vw,70px); margin-top:19px; }
+      .eyebrow { font-size:12px; }
+      .hero-copy { font-size:18px; margin-bottom:18px; }
+      .hero-info { font-size:16px; }
+      .hero-info b { font-size:22px; }
+      .hero-actions { margin-top:20px; gap:12px; }
+      .button { font-size:16px; padding:13px 20px; min-height:50px; }
+      .deadline { font-size:13px; }
+      .hero-art { height:345px; max-width:520px; width:100%; margin-inline:auto; }
+      .art-sun { width:177px; height:177px; top:40px; }
+      .art-ai { font-size:121px; top:51px; }
+      .orbit { width:265px; height:111px; top:84px; }
+      .bubble-easy { top:94px; left:18px; }
+      .bubble-safe { top:173px; right:17px; }
+      .art-bubble { font-size:14px; padding:6px 13px; }
+      .art-spark { width:40px; height:40px; top:49px; right:35px; }
+      .art-waves { height:166px; }
+      .art-date { font-size:35px; left:24px; bottom:33px; }
+      .quick-facts { grid-template-columns:repeat(2,1fr); row-gap:22px; margin-top:28px; padding:22px 0; }
+      .fact { padding-left:17px; }
+      .fact:nth-child(3) { padding-left:0; border-left:0; }
+      .fact-value { font-size:16px; }
+      .section { padding:56px 0; }
+      .intro { grid-template-columns:1fr; gap:12px; }
+      .intro-text { padding-top:0; }
+      .intro-text p { font-size:16px; }
+      .section-lead { font-size:16px; }
+      .section-heading { display:block; margin-bottom:25px; }
+      .section-heading .section-lead { margin-top:16px; }
+      .schedule { grid-template-columns:1fr; padding:25px 22px; gap:18px; margin-top:30px; }
+      .schedule h3 { margin-bottom:8px; }
+      .schedule dl { font-size:15px; grid-template-columns:68px 1fr; gap:10px 12px; }
+      .program-grid { gap:12px; }
+      .program-card { padding:20px 16px; }
+      .program-card h3 { font-size:21px; }
+      .program-card dl { font-size:12px; }
+      .program-icon { width:49px; height:49px; }
+      .join-grid,.location-grid { grid-template-columns:1fr; gap:30px; }
+      .join-grid { margin-top:25px; }
+      .join-fact { padding:18px 0; }
+      .join-fact strong { font-size:25px; }
+      .apply-panel { padding:28px 24px; }
+      .join-pending { line-height:2; }
+      .sea-sign { min-height:275px; }
+      .sea-sign strong { font-size:48px; }
+      .location-info dl { font-size:15px; gap:15px 10px; }
+      .faq summary { font-size:16px; padding-block:20px; }
+      .faq details p { font-size:15px; }
+      .closing { flex-direction:column; align-items:stretch; padding:25px; margin-top:40px; }
+      .closing strong { font-size:22px; }
+      .footer-main { flex-direction:column; gap:24px; }
+      .footer-bottom { align-items:start; gap:15px; }
+    }
+    @media (max-width:370px) { .wrap { width:calc(100% - 32px); } .program-grid { grid-template-columns:1fr; } .hero-info b { font-size:20px; } .hero-info { font-size:15px; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none!important; transition:none!important; } }
+  </style>
+</head>
+<body id="top">
+  <a class="skip" href="#main">본문 바로가기</a>
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="부산 시민 AI 체험의 날 처음으로"><span class="brand-mark" aria-hidden="true">AI</span><span>부산 시민<br>AI 체험의 날</span></a>
+      <nav class="nav" aria-label="주 메뉴"><a href="#about">행사 소개</a><a href="#programs">프로그램</a><a href="#participation">참가 안내</a><a href="#location">오시는 길</a><a class="nav-apply" href="#apply">사전 신청 ↗</a></nav>
+      <details class="mobile-menu"><summary>메뉴</summary><nav class="mobile-nav" aria-label="모바일 메뉴"><a href="#about">행사 소개</a><a href="#programs">프로그램</a><a href="#participation">참가 안내</a><a href="#location">오시는 길</a><a href="#apply">사전 신청 ↗</a></nav></details>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="event-title">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-copy-block">
+            <div class="eyebrow"><span class="dot" aria-hidden="true"></span> 부산의 모든 시민을 위한 AI 체험</div>
+            <h1 id="event-title">부산 시민<br><span>AI 체험의 날</span></h1>
+            <p class="hero-copy">생활 속 AI,<br>쉽고 안전하게 만나보세요.</p>
+            <div class="hero-info"><div><b>10월 11일 (일)</b> 12:00 ~ 20:00</div><div class="hero-location"><svg class="pin" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg>광안리 해수욕장</div></div>
+            <div class="hero-actions"><a class="button" href="https://사전신청.com" target="_blank" rel="noopener noreferrer" aria-label="사전 신청하기, 새 창">사전 신청하기 <span class="arrow" aria-hidden="true">↗</span></a><span class="free-pill">무료 참여 · 현장 참여 가능</span></div>
+            <p class="deadline">신청 마감 <strong>10월 10일 (토) 18:00</strong></p>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="art-grid"></div><div class="art-sun"></div><div class="orbit"></div><div class="orbit two"></div><div class="art-ai">AI</div>
+            <svg class="art-spark" viewBox="0 0 64 64" fill="currentColor"><path d="m32 0 7 22 21-9-13 19 17 7-23 4-9 21-7-22-21 9 13-19-17-7 23-4Z"/></svg>
+            <span class="art-bubble bubble-easy">쉽게!</span><span class="art-bubble bubble-safe">안전하게.</span>
+            <svg class="art-waves" viewBox="0 0 520 230" preserveAspectRatio="none"><path d="M0 55C100 110 150-5 260 45S420 115 520 50V230H0Z" fill="#51b8a7"/><path d="M0 120C100 30 190 150 280 110S420 45 520 100V230H0Z" fill="#08786d"/><path d="M0 152C100 210 195 117 300 160S440 205 520 151V230H0Z" fill="#074edb"/><path d="M0 154C100 212 195 119 300 162S440 207 520 153" fill="none" stroke="#9ce0d1" stroke-width="2"/></svg>
+            <div class="art-date">10.11<small>GWANGALLI · BUSAN</small></div><span class="art-label">AI IN EVERYDAY LIFE</span>
+          </div>
+        </div>
+        <div class="quick-facts" aria-label="행사 핵심 정보"><div class="fact"><span class="fact-label">누가</span><span class="fact-value">부산의 모든 시민</span></div><div class="fact"><span class="fact-label">참가비</span><span class="fact-value">무료 · 0원</span></div><div class="fact"><span class="fact-label">정원</span><span class="fact-value">500명</span></div><div class="fact"><span class="fact-label">준비물</span><span class="fact-value">없음</span></div></div>
+      </div>
+    </section>
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <div class="intro"><div><p class="section-kicker"><span>01</span> ABOUT THE DAY</p><h2 id="about-title">우리의 일상에 AI를,<br><em>쉽고 안전하게.</em></h2></div><div class="intro-text"><p>‘부산 시민 AI 체험의 날’은 생활 속 AI 활용법을 쉽고 안전하게 소개하는 행사입니다.</p><p>광안리 해수욕장에서 체험 부스, 미니 강연, 워크숍, 상담 부스를 만나보세요.</p><div class="intro-note"><span class="round-plus" aria-hidden="true">+</span>부산의 모든 시민이 참여 대상입니다.</div></div></div>
+        <div class="schedule"><div><h3>언제, 어디서 만나나요?</h3><span class="pending">행사 연도 미정</span></div><dl><dt>일시</dt><dd>10월 11일 (일) 12:00 ~ 20:00</dd><dt>장소</dt><dd>광안리 해수욕장</dd><dt>세부 위치</dt><dd><span class="pending">미정</span></dd></dl></div>
+      </div>
+    </section>
+    <section class="section program-section" id="programs" aria-labelledby="program-title">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="section-kicker"><span>02</span> PROGRAMS</p><h2 id="program-title">네 가지 프로그램으로<br>만나는 생활 속 AI</h2></div><p class="section-lead">체험부터 강연, 워크숍과 상담까지.</p></div>
+        <div class="program-grid">
+          <article class="program-card"><div class="card-top"><span class="card-number">01 / EXPERIENCE</span></div><svg class="program-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="7" y="9" width="48" height="35" rx="7" stroke="currentColor" stroke-width="2.5"/><path d="M23 54h19M32 44v10m-13-29 7 7 17-15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>체험 부스</h3><dl><dt>세부 내용</dt><dd><span class="pending">미정</span></dd><dt>운영 시간</dt><dd><span class="pending">미정</span></dd></dl></article>
+          <article class="program-card"><div class="card-top"><span class="card-number">02 / TALK</span></div><svg class="program-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="25" y="7" width="15" height="29" rx="7.5" stroke="currentColor" stroke-width="2.5"/><path d="M17 28v4a15.5 15.5 0 0 0 31 0v-4M32.5 47v10M23 57h19M9 16l5 5m42-5-5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg><h3>미니 강연</h3><dl><dt>세부 내용</dt><dd><span class="pending">미정</span></dd><dt>운영 시간</dt><dd><span class="pending">미정</span></dd><dt>강연자</dt><dd><span class="pending">미정</span></dd></dl></article>
+          <article class="program-card"><div class="card-top"><span class="card-number">03 / WORKSHOP</span></div><svg class="program-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M12 13h26v17h17v24H12V13Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="m43 9 12 12M39 26l-5 2 2-6L51 7l6 6-18 13Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M20 38h19M20 46h27" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg><h3>워크숍</h3><dl><dt>세부 내용</dt><dd><span class="pending">미정</span></dd><dt>운영 시간</dt><dd><span class="pending">미정</span></dd></dl></article>
+          <article class="program-card"><div class="card-top"><span class="card-number">04 / CONSULTATION</span></div><svg class="program-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M8 10h37v29H24L12 49V39H8V10Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M45 22h11v28h-7v8l-12-8H27v-9M18 20h17M18 28h11" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>상담 부스</h3><dl><dt>세부 내용</dt><dd><span class="pending">미정</span></dd><dt>운영 시간</dt><dd><span class="pending">미정</span></dd></dl></article>
+        </div>
+        <p class="program-note">프로그램별 구체적인 내용과 운영 시간은 미정입니다.</p>
+      </div>
+    </section>
+    <section class="section" id="participation" aria-labelledby="join-title">
+      <div class="wrap"><p class="section-kicker"><span>03</span> JOIN US</p><h2 id="join-title">참여는 무료,<br>준비물은 없어요.</h2><p class="section-lead">사전 신청과 현장 참여 모두 가능합니다.</p>
+        <div class="join-grid"><div><div class="join-info"><div class="join-fact"><span>참여 대상</span><strong>부산의 모든 시민</strong></div><div class="join-fact"><span>참가비</span><strong>0원</strong><small>무료 참여</small></div><div class="join-fact"><span>행사 정원</span><strong>500명</strong></div><div class="join-fact"><span>준비물</span><strong>없음</strong></div></div><p class="join-pending">현장 참여 절차 <span class="pending">미정</span><br>정원 초과 시 운영 방식 <span class="pending">미정</span></p></div>
+          <div class="apply-panel" id="apply"><p class="section-kicker">PRE-REGISTRATION</p><h3>사전 신청 안내</h3><p class="apply-time">10월 10일 (토) 18:00까지</p><p class="apply-address">신청 주소 · 사전신청.com</p><a class="button" href="https://사전신청.com" target="_blank" rel="noopener noreferrer" aria-label="사전 신청 페이지로 이동, 새 창">사전 신청 페이지로 이동 <span class="arrow" aria-hidden="true">↗</span></a><p class="onsite">현장 참여도 가능합니다.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="section location-section" id="location" aria-labelledby="location-title">
+      <div class="wrap location-grid"><div class="sea-sign"><div class="coordinate">GWANGALLI BEACH · BUSAN</div><strong>광안리<br>해수욕장</strong><div class="map-pending">행사 구역·상세 안내도 미정</div><svg class="wave-sign" viewBox="0 0 280 90" fill="none" aria-hidden="true"><path d="M0 20c35-40 65 40 100 0s65 40 100 0 65 40 100 0M0 45c35-40 65 40 100 0s65 40 100 0 65 40 100 0M0 70c35-40 65 40 100 0s65 40 100 0 65 40 100 0" stroke="currentColor" stroke-width="2"/></svg></div><div class="location-info"><p class="section-kicker"><span>04</span> LOCATION</p><h2 id="location-title">바다 곁에서 만나요.</h2><dl><dt>행사 장소</dt><dd>광안리 해수욕장</dd><dt>세부 위치</dt><dd><span class="pending">미정</span></dd><dt>주차</dt><dd>주변 공영주차장 이용</dd><dt>주차장 이름</dt><dd><span class="pending">미정</span></dd><dt>대중교통</dt><dd><span class="pending">미정</span></dd><dt>접근성 안내</dt><dd><span class="pending">미정</span></dd></dl></div></div>
+    </section>
+    <section class="section" aria-labelledby="faq-title"><div class="wrap"><div class="faq"><p class="section-kicker"><span>05</span> BEFORE YOU VISIT</p><h2 id="faq-title">참여 전에 확인하세요.</h2>
+      <details><summary>누가 참여할 수 있나요?</summary><p>참여 대상은 부산의 모든 시민입니다.</p></details>
+      <details><summary>참가비나 준비물이 있나요?</summary><p>참가비는 무료(0원)이며, 준비물은 없습니다.</p></details>
+      <details><summary>사전 신청을 하지 않아도 참여할 수 있나요?</summary><p>사전 신청과 현장 참여 모두 가능합니다. 행사 정원은 500명입니다. 현장 참여 절차와 정원 초과 시 운영 방식은 미정입니다.</p></details>
+      <details><summary>사전 신청은 언제까지인가요?</summary><p>10월 10일 (토) 18:00까지 사전신청.com에서 신청할 수 있습니다.</p></details>
+      <details><summary>프로그램별 시간과 행사 세부 위치는 어디서 확인하나요?</summary><p>프로그램별 운영 시간·구체적인 내용·강연자와 해수욕장 내 정확한 행사 위치는 미정입니다. 문의처도 미정입니다.</p></details>
+      </div><div class="closing"><div><strong>생활 속 AI, 쉽고 안전하게.</strong><p>10월 11일 (일) · 광안리 해수욕장</p></div><a class="button" href="#apply">사전 신청 안내 보기 <span class="arrow" aria-hidden="true">→</span></a></div></div></section>
+  </main>
+  <footer class="footer"><div class="wrap"><div class="footer-main"><div><div class="host-label">주최</div><div class="host-name">부산광역시</div><div class="logo-placeholder">부산광역시 공식 로고 <span class="pending">미정</span></div></div><div class="footer-contact"><p><strong>부산 시민 AI 체험의 날</strong></p><p>문의처 <span class="pending">미정</span></p></div></div><div class="footer-bottom"><span>부산의 모든 시민을 위한 생활 속 AI 체험</span><a href="#top">맨 위로 ↑</a></div></div></footer>
+  <script>
+    // Close the native mobile menu when an in-page destination is selected.
+    document.querySelectorAll('.mobile-nav a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        link.closest('details').removeAttribute('open');
+      });
+    });
+  </script>
+</body>
+</html>
